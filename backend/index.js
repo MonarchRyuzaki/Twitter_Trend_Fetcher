@@ -69,3 +69,5 @@ app.listen(process.env.PORT || 8080, () => {
   connectToDatabase();
   console.log("Server has started");
 });
+
+export default app;
