@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.get("/getTrends", async (req, res) => {
   try {
-    console.log("starting the script");
+    console.log("starting the script")
     const {trendingTopics, publicIP} = await getData();
     console.log(trendingTopics, publicIP);
     const date = new Date();

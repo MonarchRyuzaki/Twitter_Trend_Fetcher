@@ -12,6 +12,7 @@ const App = () => {
       setLoading(true);
       try {
         const res = await fetch("https://twitter-trend-fetcher-backend.onrender.com/getTrends");
+        // const res = await fetch("http://localhost:8080/getTrends");
         const response = await res.json();
         console.log(response);
         setData(response);
@@ -40,7 +41,7 @@ const App = () => {
       ) : (
         <>
           <p className="bold">
-            These are the most happening topics as on {data.end_date}:
+            These are the most happening topics as on {data.end_date.toLocaleString()}:
           </p>
           <ul className="trend-list">
             <li>
