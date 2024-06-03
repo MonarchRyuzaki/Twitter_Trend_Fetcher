@@ -1,5 +1,13 @@
 {
   "type": "module",
+  "name": "twitter-trend-fetch-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha",
+    "build": "./render-build.sh && echo 'Build complete'"
+  },
   "dependencies": {
     "chromedriver": "^125.0.3",
     "cors": "^2.8.5",
@@ -9,5 +17,8 @@
     "mongoose": "^8.4.1",
     "selenium-webdriver": "^4.21.0",
     "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

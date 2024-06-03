@@ -19,7 +19,7 @@ async function getData() {
   try {
     const options = new chrome.Options();
     options.setChromeBinaryPath("/usr/bin/brave-browser");
-    options.addArguments("--headless=new");
+    // options.addArguments("--headless=new");
 
     // Path to the custom proxy authentication extension
     const extensionPath = path.join(__dirname, "../proxy_auth_extension");
