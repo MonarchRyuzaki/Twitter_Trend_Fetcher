@@ -20,9 +20,9 @@ async function getData() {
   try {
     const options = new chrome.Options();
     options.setChromeBinaryPath("/usr/bin/brave-browser");
-    options.addArguments("--no-sandbox");
-    options.addArguments("--disable-dev-shm-usage");
-    options.addArguments("--disable-gpu");
+    // options.addArguments("--no-sandbox");
+    // options.addArguments("--disable-dev-shm-usage");
+    // options.addArguments("--disable-gpu");
     options.addArguments("--headless=new");
 
     // Path to the custom proxy authentication extension

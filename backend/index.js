@@ -56,7 +56,7 @@ app.get("/", async (req, res) => {
   res.send("Working");
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT || 8080, () => {
   async function connectToDatabase() {
     try {
       await mongoose.connect(process.env.MONGODB_URL);
