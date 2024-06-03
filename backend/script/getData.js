@@ -35,11 +35,11 @@ async function getData() {
     console.log("Login Page");
     const usernameField = await driver.wait(
       until.elementLocated(By.xpath(xPaths.usernameField)),
-      10000
+      20000
     );
     const nextButton = await driver.wait(
       until.elementLocated(By.xpath(xPaths.nextButton)),
-      10000
+      20000
     );
 
     await usernameField.sendKeys(process.env.TWITTER_EMAIL);
@@ -49,12 +49,12 @@ async function getData() {
       console.log("intermediate Part Happened");
       const interField = await driver.wait(
         until.elementLocated(By.xpath(xPaths.interField)),
-        10000
+        20000
       );
       await interField.sendKeys(process.env.TWITTER_USERNAME);
       const next2Button = await driver.wait(
         until.elementLocated(By.xpath(xPaths.next2Button)),
-        10000
+        20000
       );
       await next2Button.click();
     } catch (e) {
@@ -63,15 +63,15 @@ async function getData() {
     console.log("Password Page");
     const passwordField = await driver.wait(
       until.elementLocated(By.xpath(xPaths.passwordField)),
-      10000
+      20000
     );
     await passwordField.sendKeys(process.env.TWITTER_PASSWORD);
     const loginButton = await driver.wait(
       until.elementLocated(By.xpath(xPaths.loginButton)),
-      10000
+      20000
     );
     await loginButton.click();
-    await driver.wait(until.urlContains("/home"), 10000);
+    await driver.wait(until.urlContains("/home"), 20000);
 
     await driver.get("https://www.x.com/home");
 
@@ -82,20 +82,20 @@ async function getData() {
       try {
         const trendingTopicsWithSpan = await driver.wait(
           until.elementLocated(By.xpath(xpathWithSpan)),
-          10000
+          20000
         );
         trendingTopics.push(await trendingTopicsWithSpan.getText());
       } catch (error) {
         try {
           const trendingTopicsWithoutSpan = await driver.wait(
             until.elementLocated(By.xpath(xpathWithoutSpan)),
-            10000
+            20000
           );
           trendingTopics.push(await trendingTopicsWithoutSpan.getText());
         } catch (error) {
           const trendingTopicsWithImg = await driver.wait(
             until.elementLocated(By.xpath(xpathWithImg)),
-            10000
+            20000
           );
           trendingTopics.push(await trendingTopicsWithImg.getText());
         }
@@ -106,7 +106,7 @@ async function getData() {
 
     const body = await driver.wait(
       until.elementLocated(By.xpath(xPaths.ip)),
-      10000
+      20000
     );
     const bodyText = await body.getText();
     publicIP = JSON.parse(bodyText).ip;
