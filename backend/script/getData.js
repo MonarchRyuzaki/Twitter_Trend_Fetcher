@@ -71,10 +71,9 @@ async function getData() {
       20000
     );
     await loginButton.click();
+    console.log("Trying to go to home");
     await driver.wait(until.urlContains("/home"), 40000);
-
-    await driver.get("https://www.x.com/home");
-
+    console.log("Enters Home Page");
     for (let i = 3; i <= 7; i++) {
       console.log("Trend", i);
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
