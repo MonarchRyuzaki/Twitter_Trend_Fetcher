@@ -1,0 +1,47 @@
+.container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button {
+    margin-bottom: 20px;
+}
+
+.trend-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.purple {
+    color: purple;
+}
+
+.orange {
+    color: orange;
+}
