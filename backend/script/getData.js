@@ -71,7 +71,7 @@ async function getData() {
       20000
     );
     await loginButton.click();
-    await driver.wait(until.urlContains("/home"), 20000);
+    await driver.wait(until.urlContains("/home"), 40000);
 
     await driver.get("https://www.x.com/home");
 
@@ -106,7 +106,7 @@ async function getData() {
 
     const body = await driver.wait(
       until.elementLocated(By.xpath(xPaths.ip)),
-      20000
+      40000
     );
     const bodyText = await body.getText();
     publicIP = JSON.parse(bodyText).ip;
