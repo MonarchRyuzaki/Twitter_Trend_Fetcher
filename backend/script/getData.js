@@ -17,6 +17,7 @@ async function getData() {
     await driver.manage().window().maximize();
     await driver.get("https://x.com/i/flow/login");
 
+    console.log("Login Page");
     const usernameField = await driver.wait(
       until.elementLocated(By.xpath(xPaths.usernameField)),
       10000
@@ -33,6 +34,7 @@ async function getData() {
     await nextButton.click();
 
     try {
+      console.log("intermediate Page");
       const interField = await driver.wait(
         until.elementLocated(By.xpath(xPaths.interField)),
         10000
@@ -46,7 +48,7 @@ async function getData() {
     } catch (e) {
       // console.log("intermediate Part Did not Happen");
     }
-
+    console.log("Password Page");
     const passwordField = await driver.wait(
       until.elementLocated(By.xpath(xPaths.passwordField)),
       10000
@@ -62,6 +64,7 @@ async function getData() {
     await driver.get("https://www.x.com/home");
 
     for (let i = 3; i <= 7; i++) {
+      console.log("Topic", i);
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
         generateXPath(i);
       try {
