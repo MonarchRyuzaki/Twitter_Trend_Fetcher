@@ -74,12 +74,14 @@ async function getData() {
     await loginButton.click();
     try {
       console.log("Check if verification message came");
+      await delay(10000);  // Wait for 10 seconds
       console.log("Trying to get verification code field");
       const codeField = await driver.wait(
         until.elementLocated(By.xpath(xPaths.codeField)),
         20000
       );
       console.log("Sending Email Config");
+      
       const verificationCode = await getCode();
       console.log("Verification Code", verificationCode);
       await codeField.sendKeys(verificationCode);

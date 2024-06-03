@@ -13,5 +13,9 @@ export async function getCode() {
   }
 }
 
+export function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = dirname(__filename);
