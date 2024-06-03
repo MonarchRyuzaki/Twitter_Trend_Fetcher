@@ -23,7 +23,7 @@ async function getData() {
 
     // Path to the custom proxy authentication extension
     const extensionPath = path.join(__dirname, "../proxy_auth_extension");
-    options.addArguments(`--load-extension=${extensionPath}`);
+    // options.addArguments(`--load-extension=${extensionPath}`);
 
     driver = await new Builder()
       .forBrowser("chrome")
