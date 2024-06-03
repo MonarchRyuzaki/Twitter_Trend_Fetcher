@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha",
-    "build": "./render-build.sh && echo 'Build complete'"
+    "test": "mocha"
   },
   "dependencies": {
     "chromedriver": "^125.0.3",
