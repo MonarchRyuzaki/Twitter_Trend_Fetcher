@@ -1,8 +1,5 @@
 {
   "type": "module",
-  "name": "twitter-trend-fetch-backend",
-  "version": "1.0.0",
-  "main": "index.js",
   "dependencies": {
     "chromedriver": "^125.0.3",
     "cors": "^2.8.5",
