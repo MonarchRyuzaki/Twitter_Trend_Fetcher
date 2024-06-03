@@ -3,7 +3,7 @@ import path from "path";
 import { Builder, By, until } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome.js";
 // import { fetchConfirmationCode } from "../utils/email.js";
-import { __dirname, getCode, delay } from "../utils/utils.js";
+import { __dirname, delay, getCode } from "../utils/utils.js";
 import { xPaths } from "./xPaths.js";
 
 function generateXPath(i) {
@@ -20,6 +20,9 @@ async function getData() {
   try {
     const options = new chrome.Options();
     options.setChromeBinaryPath("/usr/bin/brave-browser");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    options.addArguments("--disable-gpu");
     options.addArguments("--headless=new");
 
     // Path to the custom proxy authentication extension
@@ -74,14 +77,14 @@ async function getData() {
     await loginButton.click();
     try {
       console.log("Check if verification message came");
-      await delay(10000);  // Wait for 10 seconds
+      await delay(10000); // Wait for 10 seconds
       console.log("Trying to get verification code field");
       const codeField = await driver.wait(
         until.elementLocated(By.xpath(xPaths.codeField)),
         20000
       );
       console.log("Sending Email Config");
-      
+
       const verificationCode = await getCode();
       console.log("Verification Code", verificationCode);
       await codeField.sendKeys(verificationCode);
