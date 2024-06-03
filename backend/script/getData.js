@@ -105,22 +105,25 @@ async function getData() {
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
         generateXPath(i);
       try {
+        console.log("xpathWithSpan", xpathWithSpan);
         const trendingTopicsWithSpan = await driver.wait(
           until.elementLocated(By.xpath(xpathWithSpan)),
-          20000
+          40000
         );
         trendingTopics.push(await trendingTopicsWithSpan.getText());
       } catch (error) {
         try {
+          console.log("xpathWithoutSpan", xpathWithoutSpan);
           const trendingTopicsWithoutSpan = await driver.wait(
             until.elementLocated(By.xpath(xpathWithoutSpan)),
-            20000
+            40000
           );
           trendingTopics.push(await trendingTopicsWithoutSpan.getText());
         } catch (error) {
+          console.log("xpathWithImg", xpathWithImg);
           const trendingTopicsWithImg = await driver.wait(
             until.elementLocated(By.xpath(xpathWithImg)),
-            20000
+            40000
           );
           trendingTopics.push(await trendingTopicsWithImg.getText());
         }
