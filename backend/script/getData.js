@@ -1,3 +1,18 @@
+import "chromedriver";
+import path from "path";
+import { Builder, By, until } from "selenium-webdriver";
+import chrome from "selenium-webdriver/chrome.js";
+import { __dirname } from "../utils/utils.js";
+import { xPaths } from "./xPaths.js";
+
+function generateXPath(i) {
+  const xpathWithSpan = xPaths.xpathWithSpan(i);
+  const xpathWithoutSpan = xPaths.xpathWithoutSpan(i);
+  const xpathWithImg = xPaths.xpathWithImg(i);
+
+  return { xpathWithSpan, xpathWithoutSpan, xpathWithImg };
+}
+
 async function getData() {
   let driver, publicIP;
   const trendingTopics = [];
@@ -27,14 +42,11 @@ async function getData() {
       10000
     );
 
-    console.log("Before sending username");
     await usernameField.sendKeys(process.env.TWITTER_EMAIL);
-
-    console.log("Before clicking next button");
     await nextButton.click();
 
     try {
-      console.log("intermediate Page");
+      console.log("intermediate Part Happened");
       const interField = await driver.wait(
         until.elementLocated(By.xpath(xPaths.interField)),
         10000
@@ -46,7 +58,7 @@ async function getData() {
       );
       await next2Button.click();
     } catch (e) {
-      // console.log("intermediate Part Did not Happen");
+      console.log("intermediate Part Did not Happen");
     }
     console.log("Password Page");
     const passwordField = await driver.wait(
@@ -64,7 +76,7 @@ async function getData() {
     await driver.get("https://www.x.com/home");
 
     for (let i = 3; i <= 7; i++) {
-      console.log("Topic", i);
+      console.log("Trend", i);
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
         generateXPath(i);
       try {
@@ -89,6 +101,7 @@ async function getData() {
         }
       }
     }
+    console.log("getting the ip");
     await driver.get("https://api.ipify.org?format=json");
 
     const body = await driver.wait(
@@ -97,9 +110,6 @@ async function getData() {
     );
     const bodyText = await body.getText();
     publicIP = JSON.parse(bodyText).ip;
-
-    console.log("Trending topics:", trendingTopics);
-    console.log("Public IP:", publicIP);
   } catch (error) {
     console.error("Error occurred:", error);
   } finally {
