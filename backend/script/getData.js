@@ -1,18 +1,3 @@
-import "chromedriver";
-import path from "path";
-import { Builder, By, until } from "selenium-webdriver";
-import chrome from "selenium-webdriver/chrome.js";
-import { __dirname } from "../utils/utils.js";
-import { xPaths } from "./xPaths.js";
-
-function generateXPath(i) {
-  const xpathWithSpan = xPaths.xpathWithSpan(i);
-  const xpathWithoutSpan = xPaths.xpathWithoutSpan(i);
-  const xpathWithImg = xPaths.xpathWithImg(i);
-
-  return { xpathWithSpan, xpathWithoutSpan, xpathWithImg };
-}
-
 async function getData() {
   let driver, publicIP;
   const trendingTopics = [];
@@ -41,7 +26,10 @@ async function getData() {
       10000
     );
 
+    console.log("Before sending username");
     await usernameField.sendKeys(process.env.TWITTER_EMAIL);
+
+    console.log("Before clicking next button");
     await nextButton.click();
 
     try {
@@ -106,6 +94,9 @@ async function getData() {
     );
     const bodyText = await body.getText();
     publicIP = JSON.parse(bodyText).ip;
+
+    console.log("Trending topics:", trendingTopics);
+    console.log("Public IP:", publicIP);
   } catch (error) {
     console.error("Error occurred:", error);
   } finally {
