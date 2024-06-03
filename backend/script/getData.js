@@ -3,7 +3,7 @@ import path from "path";
 import { Builder, By, until } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome.js";
 // import { fetchConfirmationCode } from "../utils/email.js";
-import { __dirname, getCode } from "../utils/utils.js";
+import { __dirname, getCode, delay } from "../utils/utils.js";
 import { xPaths } from "./xPaths.js";
 
 function generateXPath(i) {
