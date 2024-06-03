@@ -18,9 +18,6 @@ const xPaths = {
   xpathWithoutSpan: (i) => `/html/body/div[1]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[${i}]/div/div/div/div[2]/span`,
   xpathWithImg: (i) => `/html/body/div[1]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[${i}]/div/div/div/div[2]/div[1]/span`,
   ip: '/html/body/pre'
-  // /html/body/div[1]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[3]/div/div/div/div[2]/div[1]/span
-  // /html/body/div[1]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[${i}]/div/div/div/div[2]/span/span
-  // /html/body/div[1]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[4]/div/div/div/div[2]/span/span
 };
 
 export { xPaths };

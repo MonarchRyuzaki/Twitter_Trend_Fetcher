@@ -41,7 +41,7 @@ const App = () => {
       ) : (
         <>
           <p className="bold">
-            These are the most happening topics as on {data.end_date.toLocaleString()}:
+            These are the most happening topics as on {data.end_date}.
           </p>
           <ul className="trend-list">
             <li>
