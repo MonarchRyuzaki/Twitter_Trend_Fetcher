@@ -9,6 +9,8 @@ Welcome to the Twitter Trends Fetching Web Scraping Project! This project aims t
 * [Setup](#setup)
 * [Usage](#usage)
 * [Video Example](#video-example)
+* [What I Learned](#what-i-learned)
+* [Unresolved Issues](#unresolved-issues)
 
 ## Features
 
@@ -88,3 +90,28 @@ Welcome to the Twitter Trends Fetching Web Scraping Project! This project aims t
 ## Video Example
 
 [![Video Example](https://img.youtube.com/vi/UUdrwbhedGY/0.jpg)](https://www.youtube.com/watch?v=UUdrwbhedGY)
+
+
+## What I Learned
+
+During the development of this project, I gained valuable experience in several key areas:
+
+* **Web Scraping with Selenium** : Learned how to automate web browsers using Selenium for scraping dynamic content.
+* **React for Frontend Development** : Enhanced my skills in building interactive user interfaces with React.
+* **Backend with Express** : Developed a robust backend using Express to handle API requests and manage server-side logic.
+* **MongoDB for Data Storage** : Implemented MongoDB for efficient storage and retrieval of scraped data.
+* **Email Handling with Node-IMAP** : Understood the process of automating email interactions to fetch verification codes.
+* **Proxy Management** : Gained knowledge in using ProxyMesh and proxy authentication extensions to manage web scraping proxies securely.
+
+## Unresolved Issues
+
+While working on this project, I encountered some challenges that I could not fully resolve:
+
+* **Handling Captchas** : Occasionally, Twitter presents captchas that are difficult to bypass programmatically. Finding a reliable solution for this remains a challenge.
+* **Proxy Rotation** : Implementing a more sophisticated proxy rotation mechanism to avoid being blocked by Twitter is still a work in progress.
+* **Email Verification Reliability** : Ensuring consistent and reliable fetching of verification codes from email can sometimes be unpredictable due to various email provider restrictions.
+* **Dynamic Content Loading** : Some Twitter content loads dynamically and handling such cases requires further refinement in the Selenium scripts.
+* **Timeout Errors** : Encountered timeout errors during web scraping sessions which can interrupt the data collection process.
+* **Invalid Session ID/Not Connected to DevTools** : These errors sometimes occur during the scraping process, causing disruptions and necessitating script restarts.
+
+Due to these unresolved issues, the project is not yet deployed.
