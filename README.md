@@ -57,21 +57,22 @@ Welcome to the Twitter Trends Fetching Web Scraping Project! This project aims t
    npm install
    ```
 4. Configure environment variables:
-5. ```
+
+   ```
    Create a .env file in the backend directory and add the following variables:
-   TWITTER_EMAIL = user@example.com
-   TWITTER_USERNAME = your_username
-   TWITTER_PASSWORD = your_password
+   TWITTER_EMAIL = user@example.com 
+   TWITTER_USERNAME = your_username 
+   TWITTER_PASSWORD = your_password 
    MONGODB_URL = your_mongodb_url
    ```
-6. Start the backend server:
+5. Start the backend server:
 
    ```
    cd ../backend
    node index.js
 
    ```
-7. Start the frontend development server:
+6. Start the frontend development server:
 
    ```
    cd ../frontend
@@ -86,4 +87,4 @@ Welcome to the Twitter Trends Fetching Web Scraping Project! This project aims t
 
 ## Video Example
 
-[Go here for youtube example](https://www.youtube.com/watch?v=UUdrwbhedGY)
+[![Video Example](https://img.youtube.com/vi/UUdrwbhedGY/0.jpg)](https://www.youtube.com/watch?v=UUdrwbhedGY)
