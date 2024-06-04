@@ -2,7 +2,6 @@ import "chromedriver";
 import path from "path";
 import { Builder, By, until } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome.js";
-import fs from 'fs';
 import { __dirname, delay, getCode } from "../utils/utils.js";
 import { xPaths } from "./xPaths.js";
 
@@ -19,11 +18,37 @@ async function getData() {
   const trendingTopics = [];
   try {
     const options = new chrome.Options();
-    options.setChromeBinaryPath("/usr/bin/brave-browser");
-    // options.addArguments("--no-sandbox");
-    // options.addArguments("--disable-dev-shm-usage");
-    // options.addArguments("--disable-gpu");
-    // options.addArguments("--headless=new");
+    options
+      .setChromeBinaryPath("/usr/bin/brave-browser")
+      .addArguments("--disable-gpu")
+      .addArguments("--no-sandbox")
+      .addArguments("--disable-dev-shm-usage")
+      .addArguments("--disable-setuid-sandbox")
+      .addArguments("--disable-extensions")
+      .addArguments("--disable-infobars")
+      .addArguments("--disable-notifications")
+      .addArguments("--disable-popup-blocking")
+      .addArguments("--disable-sync")
+      .addArguments("--disable-accelerated-2d-canvas")
+      .addArguments("--disable-accelerated-video-decode")
+      .addArguments("--disable-background-networking")
+      .addArguments("--disable-background-timer-throttling")
+      .addArguments("--disable-backgrounding-occluded-windows")
+      .addArguments("--disable-breakpad")
+      .addArguments("--disable-client-side-phishing-detection")
+      .addArguments("--disable-component-update")
+      .addArguments("--disable-default-apps")
+      .addArguments("--disable-features=site-per-process")
+      .addArguments("--disable-hang-monitor")
+      .addArguments("--disable-prompt-on-repost")
+      .addArguments("--disable-translate")
+      .addArguments("--disk-cache-size=0")
+      .addArguments("--media-cache-size=0")
+      .addArguments("--blink-settings=imagesEnabled=false")
+      .addArguments("--single-process")
+      .addArguments("--no-zygote")
+      .addArguments("--remote-debugging-port=9222")
+      .addArguments("--headless=new");
 
     // Path to the custom proxy authentication extension
     const extensionPath = path.join(__dirname, "../proxy_auth_extension");
@@ -106,10 +131,6 @@ async function getData() {
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
         generateXPath(i);
       try {
-        const screenshot = await driver.takeScreenshot();
-        fs.writeFileSync("/path/to/screenshot.png", screenshot, "base64");
-        console.log("Screenshot taken and saved as screenshot.png");
-
         console.log("xpathWithSpan", xpathWithSpan);
         const trendingTopicsWithSpan = await driver.wait(
           until.elementLocated(By.xpath(xpathWithSpan)),
