@@ -2,7 +2,7 @@ import "chromedriver";
 import path from "path";
 import { Builder, By, until } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome.js";
-// import { fetchConfirmationCode } from "../utils/email.js";
+import fs from 'fs';
 import { __dirname, delay, getCode } from "../utils/utils.js";
 import { xPaths } from "./xPaths.js";
 
@@ -23,7 +23,7 @@ async function getData() {
     // options.addArguments("--no-sandbox");
     // options.addArguments("--disable-dev-shm-usage");
     // options.addArguments("--disable-gpu");
-    options.addArguments("--headless=new");
+    // options.addArguments("--headless=new");
 
     // Path to the custom proxy authentication extension
     const extensionPath = path.join(__dirname, "../proxy_auth_extension");
@@ -100,11 +100,16 @@ async function getData() {
     console.log("Trying to go to home");
     await driver.wait(until.urlContains("/home"), 40000);
     console.log("Enters Home Page");
+    await driver.get("https://x.com/home");
     for (let i = 3; i <= 7; i++) {
       console.log("Trend", i);
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
         generateXPath(i);
       try {
+        const screenshot = await driver.takeScreenshot();
+        fs.writeFileSync("/path/to/screenshot.png", screenshot, "base64");
+        console.log("Screenshot taken and saved as screenshot.png");
+
         console.log("xpathWithSpan", xpathWithSpan);
         const trendingTopicsWithSpan = await driver.wait(
           until.elementLocated(By.xpath(xpathWithSpan)),
