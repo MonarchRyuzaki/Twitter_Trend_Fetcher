@@ -3,3 +3,5 @@ backend/.env
 
 # Ignore node_modules directory in the backend directory
 backend/node_modules/
+
+dummy.html
