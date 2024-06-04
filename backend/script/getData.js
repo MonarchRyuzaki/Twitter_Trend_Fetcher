@@ -126,6 +126,10 @@ async function getData() {
     await driver.wait(until.urlContains("/home"), 40000);
     console.log("Enters Home Page");
     await driver.get("https://x.com/home");
+    const pageHTML = await driver.getPageSource();
+
+    // Log the HTML content to the console
+    console.log(pageHTML);
     for (let i = 3; i <= 7; i++) {
       console.log("Trend", i);
       const { xpathWithSpan, xpathWithoutSpan, xpathWithImg } =
